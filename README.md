@@ -2,8 +2,7 @@
 
 - 링크 : https://main.d1tz93570xd6f8.amplifyapp.com  
 
-###    ###
-###    
+&nbsp; 
 
 
 ## 프로젝트 소개
@@ -19,7 +18,8 @@
   - 사용자가 제공하는 경제 뉴스 링크를 통해 해당 뉴스 내용을 자동으로 크롤링 해줍니다.
   - 기사 내에서 등장하는 경제 용어들을 자동으로 추출 해줍니다.
   - 경제 용어에 대한 간단한 정의와 설명을 통해 독자가 뉴스 내용을 더 쉽게 이해하고, 경제에 대한 지식을 향상시킬 수 있도록 돕습니다.
-
+&nbsp;
+&nbsp; 
 ## 멤버 소개
 
 |김예훈|최현용|이연규|박도아|
@@ -27,20 +27,28 @@
 |![image](https://github.com/user-attachments/assets/bfa3a16a-6af9-4fd3-a146-9d02b1fd65d7)|![image](https://github.com/user-attachments/assets/9d1e513d-4889-4b82-af14-4d3a7f07ca7c)|![image](https://github.com/user-attachments/assets/51227f7a-99e8-4b9a-bac6-f4d4062289ca)|![image](https://github.com/user-attachments/assets/cb690d63-42f1-45d7-ba70-afa11e756e5b)|
 |@yehoon-already-have|@gusdyddl1212|@Da-413|@parkdoa|
 
-## 이코파인더 사용법
-![ecofinder-step1-gif](https://github.com/user-attachments/assets/2f0e67d9-9dce-438d-8f22-e98ffb3b2a18)
-1. 정보 제공을 원하는 뉴스의 url 또는 기사 텍스트를 입력창에 입력합니다.
 
-   
-![ecofinder-step2-gif](https://github.com/user-attachments/assets/eacd9050-ee12-4b4b-8f68-05c6a9257272)
+&nbsp; 
+&nbsp; 
+## 이코파인더 사용법 및 기능
+1. 정보 제공을 원하는 뉴스의 url 또는 기사 텍스트를 입력창에 입력합니다.
+&nbsp;
+
+![ecofinder-step1-gif](https://github.com/user-attachments/assets/2f0e67d9-9dce-438d-8f22-e98ffb3b2a18)
 
 2. 답변으로 뉴스에 포함된 경제 용어의 해설과 뉴스 내용을 동시에 제공받습니다. (약 20 ~ 30초 소요)
+&nbsp;
+
+![ecofinder-step2-gif](https://github.com/user-attachments/assets/eacd9050-ee12-4b4b-8f68-05c6a9257272)
+
+3. 경제와 관련 없는 기사의 경우 경제 관련 용어가 없다는 답변을 받습니다.
+&nbsp;
 
 ![ecofinder-step3-gif](https://github.com/user-attachments/assets/98103686-6d61-453b-bc9f-245d2c7da96f)
 
-3. 경제와 관련 없는 기사의 경우 경제 관련 용어가 없다는 답변을 받습니다.
 
-
+&nbsp; 
+&nbsp; 
 ## 로컬 실행 방법
 - FrontEnd
     - frontend 폴더에 접근하고 아래 코드를 실행합니다.
