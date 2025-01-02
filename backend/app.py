@@ -7,14 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from langchain.chains import RetrievalQA
 from langchain_pinecone import PineconeVectorStore
 from langchain_upstage import ChatUpstage, UpstageEmbeddings
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
 from pinecone import Pinecone, ServerlessSpec
 from pydantic import BaseModel
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import validators  # URL 유효성 검사를 위한 라이브러리
 
 # 환경 변수 로드
@@ -55,19 +49,14 @@ app.add_middleware(
 )
 
 # Pydantic 모델 정의
-class ChatMessage(BaseModel):
-    role: str
-    content: str
-
-class AssistantRequest(BaseModel):
-    message: str
-    thread_id: Optional[str] = None
-
-class ChatRequest(BaseModel):
-    messages: List[ChatMessage]
-
 class MessageRequest(BaseModel):
     message: str
+
+# Selenium 설정
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Chrome 옵션 설정 (헤드리스 모드)
 options = webdriver.ChromeOptions()
@@ -78,6 +67,7 @@ options.add_argument("window-size=1920,1080")
 
 # ChromeDriver 자동 설치 및 실행
 service = Service(ChromeDriverManager().install())
+
 # Selenium을 이용한 기사 크롤링 함수
 def scrape_article_content(article_link: str) -> str:
     # URL 유효성 검사
@@ -109,7 +99,6 @@ def scrape_article_content(article_link: str) -> str:
     except Exception as e:
         raise ValueError(f"기사 크롤링 중 오류 발생: {e}")
     finally:
-
         driver.quit()
 
 # 경제 용어를 찾는 엔드포인트
@@ -132,8 +121,8 @@ async def findword_endpoint(req: MessageRequest):
 너는 아래 기사에서 경제 용어를 찾아서 리스트업 해줘
 {user_message}
 
-위 단어들 중 경제 용어가 없다면 "경제 관련 단어가 없습니다"라고 하고 아래 내용은 건너 뛰어
-만약에 경제 용어가 있다면 경제 관련 단어만 추출해서 무슨 뜻인지 번호를 매겨서 아래와 같은 형식으로 나열해줘
+위 단어들 중 경제 용어가 없다면 "경제 관련 단어가 없습니다"라고 말말하고 아래 내용은 건너 뛰어
+만약에 경제 용어가 있다면 경제 관련 단어만 추출해서 무슨 뜻인지 번호를 매겨서 아래와 같은 형식으로 나열해줘 그 외 아무말 하지마.
 
 예시 ) 1. 국내총투자율 : 국내 총투자율(gross domestic investment ratio)은 국민경제가 구매한 재화 중에서 
 자산의 증가로 나타난 부분이 국민총처분가능소득에서 차지하는 비율을 의미한다.
@@ -159,15 +148,10 @@ async def findword_endpoint(req: MessageRequest):
         }
 
     except ValueError as e:
-      
         raise HTTPException(status_code=500, detail=str(e))
-    
 
 # Health check 엔드포인트
-@app.get("/health")
-@app.get("/")
-async def health_check():
-    return {"status": "ok"}
+
 
 if __name__ == "__main__":
     import uvicorn
