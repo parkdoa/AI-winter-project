@@ -1,4 +1,5 @@
 # 🔍이코파인더
+![image](https://github.com/user-attachments/assets/4fd46aa1-4154-4731-b8f5-866cdabef343)
 
 - 링크 :[https://main.d1tz93570xd6f8.amplifyapp.com](https://ai-winter-frontend-project.vercel.app/)
 &nbsp; 
