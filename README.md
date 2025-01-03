@@ -1,7 +1,6 @@
 # 🔍이코파인더
 
-- 링크 : https://main.d1tz93570xd6f8.amplifyapp.com  
-
+- 링크 :[https://main.d1tz93570xd6f8.amplifyapp.com](https://ai-winter-frontend-project.vercel.app/)
 &nbsp; 
 
 
